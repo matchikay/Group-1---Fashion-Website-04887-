@@ -1,0 +1,86 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+
+<style>
+    body {
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+
+    h1, h2, h3 {
+        margin-top: 0;
+        color: black;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    .button {
+        background-color: black;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .button:hover {
+            background-color: gray;
+        }
+
+    .fashion-img {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .highlight {
+        font-weight: bold;
+        color: black;
+    }
+
+    .full-screen-img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+</style>
+<body>
+
+    <div class="container">
+        <h1>Welcome to LaFlor</h1>
+        <p><span class="highlight">LaFLor</span> celebrates the art of fashion. Discover the latest trends, explore our collections, and get inspired.</p><br />
+        <img src="~/images/photo1.png" alt="Full Screen" class="full-screen-img" />
+        <br /><br /><br />
+
+        <h2>Shop with Confidence</h2>
+        <p>Shop the latest trends with confidence. Enjoy a seamless experience with secure payment and reliable delivery.</p>
+        <br /><br />
+
+        <h2>Our Collections</h2>
+        <img src="~/images/collections.png" alt="Fashion Collection" class="fashion-img" />
+        <p>Explore curated collections that highlight the latest trends. From casual to avant-garde, find your style here.</p>
+        <br />
+        <h2>Contact Us</h2>
+        <p>Have questions or need assistance? Reach out to us via phone, email, or visit our store.</p>
+
+        <button class="button"><a asp-area="" asp-controller="User" asp-action="Shop" style="color: inherit; text-decoration: none;">Explore Now</a></button>
+    </div>
+
+</body>

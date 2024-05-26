@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LaFlor.Models.Orders>
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Email</th>
+            <th>Payment</th>
+            <th>Placed Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.order_name</td>
+                <td>@item.order_number</td>
+                <td>@item.order_email</td>
+                <td>@item.order_payment_method</td>
+                <td>@item.order_placed_date</td>
+                <td>@item.order_total</td>
+                <form>
+                <td>
+                    
+                    <select name="status" class="form-select">
+                        <option value="pending" selected>Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Order Actions">
+                        <button asp-route-id="@item.order_id" type="submit" class="btn btn-primary" asp-action="UpdateOrder" asp-controller="Admin">Update</button>
+                        <button asp-route-id="@item.order_id" type="submit" class="btn btn-danger" asp-action="DeleteOrder" asp-controller="Admin">Delete</button>
+                    </div>
+                </td>
+                </form>
+            </tr>
+        }
+    </tbody>
+</table>

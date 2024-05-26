@@ -1,0 +1,88 @@
+﻿@model IEnumerable<LaFlor.Models.CartWithCustomer>
+@{
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<style>
+
+    .container {
+        padding: 20px;
+    }
+
+    .bg-white {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: black;
+    }
+
+    .btn-primary {
+        background-color: black;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: gray;
+        }
+</style>
+
+<div class="container">
+    <div class="row">
+        @if (Model == null || !Model.Any())
+        {
+            <div class="col-12">
+                <div class="alert alert-warning text-center" role="alert" style="background-color: black;">
+                    <p style="color: white; font-size: 16px; margin-top: 10px;">Your cart is empty.</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <h5 class="card-header text-white" style="background-color:black;">@item.flowers.flower_name</h5>
+                        <div class="card-body">
+                            <img class="card-img" src="@item.flowers.flower_image" alt="Flower Image" />
+                            <div class="mt-2">
+                                <p class="card-text"><strong>Price: ₱</strong> @item.flowers.flower_price</p>
+                                <p class="card-text"><strong>Sub Total: </strong> @item.cart.cart_total</p>
+                            </div>
+                        </div>
+                        <div class="card-footer d-flex flex-column justify-content-between">
+                            <form>
+                                <input type="number" value="@item.cart.cart_qty" name="qty" class="form-control my-3" placeholder="Quantity" />
+                                <button type="submit" asp-controller="User" asp-action="UpdateCart" asp-route-id="@item.cart.cart_id" class="btn btn-primary form-control">Update</button>
+                                <button type="submit" asp-controller="User" asp-action="DeleteCart" asp-route-id="@item.cart.cart_id" class="btn btn-danger form-control my-4">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div class="container mb-3">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 bg-white py-3">
+            <h1>Grand Total: ₱@ViewBag.grandTotal</h1>
+            <div class="d-flex justify-content-center mt-3">
+                <a asp-route-total="@ViewBag.grandTotal" asp-action="Checkout" asp-controller="User" class="btn btn-primary">Checkout</a>
+            </div>
+        </div>
+    </div>
+</div>

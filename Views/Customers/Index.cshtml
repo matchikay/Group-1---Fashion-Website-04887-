@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LaFlor.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<p>
+    <button class="button"><a asp-action="Create" style="text-decoration: none; color: white;">Create New</a></button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customer_email)
+            </th>
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_email)
+            </td>
+        
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.customer_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.customer_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.customer_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

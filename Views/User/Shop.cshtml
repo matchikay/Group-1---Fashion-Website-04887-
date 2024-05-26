@@ -1,0 +1,32 @@
+﻿@model IEnumerable<LaFlor.Models.Flowers>
+
+@{
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+<div class="container">
+   
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <h5 class="card-header text-white" style="background-color:black;">@item.flower_name</h5>
+                    <div class="card-body">
+                        <img class="card-img" src="@item.flower_image" alt="Apartment Image" />
+                        <div class="mt-2">
+                            <p class="card-text"><strong>Price: ₱</strong> @item.flower_price</p>
+                            <p class="card-text"><strong>Designer: </strong> @item.flower_details</p>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex flex-column justify-content-between">
+                        <form>
+                        <input type="number" name="qty" class="form-control my-3" placeholder="Quantity" />
+                        <button type="submit" asp-controller="User" asp-action="AddCart" asp-route-id="@item.flower_id" class="btn btn-primary form-control">Add Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+@model IEnumerable<LaFlor.Models.CartWithCustomer>
+<h1 class="text-center text-white">Completed Orders</h1>
+
+<div class="table-responsive" style="overflow-x: auto;">
+    <table class="table">
+        <thead >
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Email</th>
+                <th>Payment Method</th>
+                <th>Address 1</th>
+                <th>Address 2</th>
+                <th>Barangay</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>Zip Code</th>
+                <th>Order Placed</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Customer Name</th>
+            </tr>
+        </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.orders.order_id</td>
+                <td>@item.orders.order_name</td>
+                <td>@item.orders.order_number</td>
+                <td>@item.orders.order_email</td>
+                <td>@item.orders.order_payment_method</td>
+                <td>@item.orders.order_address1</td>
+                <td>@item.orders.order_address2</td>
+                <td>@item.orders.order_barangay</td>
+                <td>@item.orders.order_city</td>
+                <td>@item.orders.order_province</td>
+                <td>@item.orders.order_zip</td>
+                <td>@item.orders.order_placed_date</td>
+                <td>@item.orders.order_total</td>
+                <td>@item.orders.order_status</td>
+                <td>@item.customer.customer_username</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

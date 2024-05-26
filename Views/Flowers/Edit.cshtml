@@ -1,0 +1,49 @@
+﻿@model LaFlor.Models.Flowers
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="flower_id" />
+            <div class="form-group">
+                <label asp-for="flower_name" class="control-label"></label>
+                <input asp-for="flower_name" class="form-control" />
+                <span asp-validation-for="flower_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="flower_price" class="control-label"></label>
+                <input asp-for="flower_price" class="form-control" />
+                <span asp-validation-for="flower_price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="flower_details" class="control-label"></label>
+                <input asp-for="flower_details" class="form-control" />
+                <span asp-validation-for="flower_details" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="flower_image" class="control-label"></label>
+                <input asp-for="flower_image" class="form-control" />
+                <span asp-validation-for="flower_image" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <button class="btn btn-primary" style="margin-top: 10px;"><a asp-action="Index" style="text-decoration: none; color: white;">Back to List</a></button>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

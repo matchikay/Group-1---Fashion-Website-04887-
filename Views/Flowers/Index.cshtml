@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LaFlor.Models.Flowers>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<div class="container">
+    <h1 class="display-4">Listed Products</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary my-4">Create New Listing</a>
+    </p>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <h5 class="card-header text-white" style="background-color:black;">@item.flower_name</h5>
+                    <div class="card-body">
+                        <img class="card-img" src="@item.flower_image" alt="Apartment Image" />
+                        <div class="mt-2">
+                            <p class="card-text"><strong>Price: ₱</strong> @item.flower_price</p>
+                            <p class="card-text"><strong>Details: </strong> @item.flower_details</p>
+
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a asp-action="Edit" asp-route-id="@item.flower_id" class="btn btn-primary">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.flower_id" class="btn btn-light">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.flower_id" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
