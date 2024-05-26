@@ -19,4 +19,4 @@ Steps to access the website.
 4. To access the admin side, enter the static credentials "email: admin@gmail.com" "password: admin".
 5. Add products to the product navigation.
 6. Go to the user side and register a user by clicking the "Register now."
-7. Order from user side, go to cart, checkout the item, and fill out the checkout details.
+7. Order from user side, go to cart, checkout the item, and fill out the checkout details. Make sure to fill out all the details to count the order.
