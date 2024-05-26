@@ -3,6 +3,8 @@ INTPROG FINAL PROJECT
 Group 1: (Fashion Website)
 A fashion website can help the professionals belonging to the fashion industry in displaying or showcasing their craft. Fashionistas can pitch to a larger segment of the audience to maximize their sales.
 
+![image](https://github.com/matchikay/Group-1---Fashion-Website-04887-/assets/168846218/fa7a70e4-1485-4afe-88fc-3280f1c51ffb)
+
 MEMBERS:
 1. Abundo, Jeama Kesiya
 2. Cabarse, Edrian
